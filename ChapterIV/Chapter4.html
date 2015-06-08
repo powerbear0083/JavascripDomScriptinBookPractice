@@ -3,15 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <title>Chapter4 Image Gallery</title>
+<link type="text/css" rel="stylesheet"  href="css/layout.css">
 </head>
 <body>
 <h1>Snapshots</h1>
 <ul>
-	<li><a href="images/fireworks.png" title="a fireworks display">Fireworks</a></li>
-	<li><a href="images/coffee.jpg" title="A cup of black coffee">Coffee</a></li>
-	<li><a href="images/rose.jpg" title="A red, red rose">Rose</a></li>
-	<li><a href="images/bigben.jpg" title="the famous clock">Big Ben</a></li>
+	<li><a href="images/fireworks.png" title="a fireworks display" onclick="showPic(this); return false;">Fireworks</a></li>
+	<li><a href="images/coffee.jpg" title="A cup of black coffee" onclick="showPic(this); return false;">Coffee</a></li>
+	<li><a href="images/rose.jpg" title="A red, red rose" onclick="showPic(this); return false;">Rose</a></li>
+	<li><a href="images/bigben.jpg" title="the famous clock" onclick="showPic(this); return false;">Big Ben</a></li>
 </ul>
 <img id="placeholder" src="images/placeholder.jpg" alt="my images gallery" >
+<p id="description">Choose an image.</p>
+<!-- <script type="text/javascript" src="js/showPic.js"></script> -->
+<script type="text/javascript">
+/*function countBodyChildren() {
+    var body_element = document.getElementsByTagName('body')[0];
+    alert(body_element.nodeType);
+    //console.log(body_element.childNodes.length);
+}
+
+window.onload = countBodyChildren;*/
+function showPic(whichpic) {
+    var source = whichpic.getAttribute('href');
+    var text = whichpic.getAttribute('title');
+    var placeholder = document.getElementById('placeholder');
+    var description = document.getElementById('description');
+    placeholder.setAttribute('src', source);
+
+    description.firstChild.nodeValue = text;
+    //alert(description.firstChild.nodeValue);
+}
+
+</script>
+</script>
 </body>
 </html>
