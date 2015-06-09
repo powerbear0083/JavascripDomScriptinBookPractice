@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Chapter5 Image Gallery</title>
+<link type="text/css" rel="stylesheet"  href="css/layout.css">
+</head>
+<body>
+<a href="https://www.google.com.tw/" class="popup">google</a>
+<!-- <script type="text/javascript" src="js/showPic.js"></script> -->
+<script type="text/javascript">
+window.onload = prepareLinks;
+function prepareLinks(){
+    var links = document.getElementsByTagName('a');
+    for(var i = 0; i < links.length; i++){
+        if(links[i].getAttribute('class') == 'popup'){
+            links[i].onclick = function(){
+                popUP(this.getAttribute('href'));
+                return false;
+            }
+        }
+        /*links[i].onclick = function() {
+            popUP(this.getAttribute('href'));
+            return false;
+        }*/
+    }
+}
+window.onload = function(){
+    if(!document.getElementsByTagName) return false;
+    var links = document.getElementsByTagName('a');
+    for (var i = 0; i < links.length; i++) {
+        if (links[i].getAttribute('class') == 'popup') {
+            links[i].onclick = function() {
+                popUP(this.getAttribute('href'));
+                return false;
+            }
+        }
+    }
+}
+
+function popUP(winUrl){
+    window.open(winUrl, 'popup', 'width=320', 'height=480');
+}
+</script>
+</script>
+</body>
+</html>
