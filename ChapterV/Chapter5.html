@@ -9,22 +9,24 @@
 <a href="https://www.google.com.tw/" class="popup">google</a>
 <!-- <script type="text/javascript" src="js/showPic.js"></script> -->
 <script type="text/javascript">
-window.onload = prepareLinks;
-function prepareLinks(){
-    var links = document.getElementsByTagName('a');
-    for(var i = 0; i < links.length; i++){
-        if(links[i].getAttribute('class') == 'popup'){
-            links[i].onclick = function(){
-                popUP(this.getAttribute('href'));
-                return false;
-            }
-        }
-        /*links[i].onclick = function() {
-            popUP(this.getAttribute('href'));
-            return false;
-        }*/
-    }
-}
+// 基本寫法
+// window.onload = prepareLinks;
+// function prepareLinks(){
+//     var links = document.getElementsByTagName('a');
+//     for(var i = 0; i < links.length; i++){
+//         if(links[i].getAttribute('class') == 'popup'){
+//             links[i].onclick = function(){
+//                 popUP(this.getAttribute('href'));
+//                 return false;
+//             }
+//         }
+//         /*links[i].onclick = function() {
+//             popUP(this.getAttribute('href'));
+//             return false;
+//         }*/
+//     }
+// }
+// 向下相容寫法
 window.onload = function(){
     if(!document.getElementsByTagName) return false;
     var links = document.getElementsByTagName('a');
