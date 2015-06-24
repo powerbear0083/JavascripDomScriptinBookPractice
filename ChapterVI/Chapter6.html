@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Chapter4 Image Gallery</title>
+<link type="text/css" rel="stylesheet"  href="css/layout.css">
+</head>
+<body>
+<h1>Snapshots</h1>
+<ul id="imagegallery">
+    <li><a href="images/fireworks.png" title="a fireworks display">Fireworks</a></li>
+    <li><a href="images/coffee.jpg" title="A cup of black coffee">Coffee</a></li>
+    <li><a href="images/rose.jpg" title="A red, red rose">Rose</a></li>
+    <li><a href="images/bigben.jpg" title="the famous clock">Big Ben</a></li>
+</ul>
+<img id="placeholder" src="images/placeholder.jpg" alt="my images gallery" >
+<p id="description">Choose an image.</p>
+<!-- <script type="text/javascript" src="js/showPic.js"></script> -->
+<script type="text/javascript">
+function prepareGallery(){
+    //檢查瀏覽器是否支援以下標籤ID
+    if( !document.getElementsByTagName ) return false;
+    if( !document.getElementById ) return false;
+    if( !document.getElementById('imagegallery') ) return false;   
+  
+    var gallery = document.getElementById('imagegallery'); //取得ul id
+    var links = gallery.getElementsByTagName('a');   //取得li 裡的a
+
+    for( var i = 0; i< links.length; i++){
+        links[i].onclick = function(){
+            // showPic(this);
+            // return false;
+            //console.log(!showPic(this));
+            //return showPic(this);
+
+            //return !showPic(this);
+            // if(showPic(this)){
+            //     return false;
+            // }else{
+            //     return true;
+            // }
+
+            return showPic(this) ? false : true ;
+        }
+    }
+}
+function showPic(whichpic) {    
+    if (!document.getElementById('placeholder')) return false;
+    var source = whichpic.getAttribute('href'); //取得a 裡 href 的圖片   
+    var placeholder = document.getElementById('placeholder'); //取得 id 
+    if(placeholder.nodeName !='IMG') return false;
+    placeholder.setAttribute('src', source); //設定 placeholder src
+
+    if (document.getElementById('description')) {
+        var text = whichpic.getAttribute('title'); //取得a 裡 title 的文字
+        var description = document.getElementById('description'); //取得 id 
+        if(description.firstChild.nodeType == 3){
+            description.firstChild.nodeValue = text; //把 a 裡title 的文字傳到 placeholder
+        }        
+    }
+    return true;
+}
+function addLoadEvent(func) {
+    var oldonload = window.onload; //定義 onload 變數
+
+    //如果沒有function 在執行、直接執行function
+    //如果有 function 在執行，把第二個function，接在第一個function後面執行
+    if (typeof window.onload != 'function') {
+        window.onload = func;
+    } else {
+        window.onload = function() {
+            oldonload();
+            func();
+        }
+    }
+}
+addLoadEvent(prepareGallery);
+</script>
+</script>
+</body>
+</html>
