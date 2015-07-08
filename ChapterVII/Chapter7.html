@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Chapter7 Image Gallery</title>
+<link type="text/css" rel="stylesheet"  href="css/layout.css">
+</head>
+<body>
+<div id="testdiv">
+	<!-- <p>This is <em>my</em> content</p> -->
+</div>
+<!-- <script type="text/javascript" src="js/showPic.js"></script> -->
+<script type="text/javascript" src="js/example.js"></script>
+<script type="text/javascript">
+insertParagraph('000000.');
+/*window.onload = function(){
+	var testdiv = document.getElementById('testdiv');
+	// alert(testdiv.innerHTML);
+	testdiv.innerHTML = '<p>I inserted <em>this</em> content.</p>'
+}*/
+window.onload = function() {
+    /*var para = document.createElement('p');
+    var info = 'nodeName: ';
+    //測試P 是否為nodeName 屬性
+    info += para.nodeName; //info = info + para.nodeName
+    info += ' noedType: '; //info = info + ' noedeType: '
+    info += para.nodeType; //info = info + para.noedeType
+    alert(info);*/
+
+    //first createTextNode Method
+    /*var para = document.createElement('p');
+    var testdiv = document.getElementById('testdiv');
+    testdiv.appendChild(para);
+    var txt = document.createTextNode('Hello world');
+    para.appendChild(txt);*/
+
+    //second createTextNode Method
+    /*var para = document.createElement('p');
+    var txt = document.createTextNode('Hello world');
+    para.appendChild(txt);
+    var testdiv = document.getElementById('testdiv');
+    testdiv.appendChild(para);*/
+
+    //third createTextNode Method
+    /*var para = document.createElement('p');
+    var txt1 = document.createTextNode('This is ');
+    para.appendChild(txt1);
+
+    var emphasis = document.createElement('em');
+    var txt2 = document.createTextNode('my');
+    emphasis.appendChild(txt2);
+    para.appendChild(emphasis);
+
+    var txt3 = document.createTextNode(' content');
+    para.appendChild(txt3);
+
+    var testdiv = document.getElementById('testdiv');
+    testdiv.appendChild(para);*/
+
+    //fourth createTextNode Method
+    var para = document.createElement('p');
+    var txt1 = document.createTextNode('This is ');
+    para.appendChild(txt1);
+    var emphasis = document.createElement('em');
+    var txt2 = document.createTextNode('my');
+    var txt3 = document.createTextNode(' content.');
+    para.appendChild(txt1);
+    emphasis.appendChild(txt2);
+    para.appendChild(emphasis);
+    para.appendChild(txt3);
+    var testdiv = document.getElementById('testdiv');
+    testdiv.appendChild(para);
+
+
+}
+</script>
+</script>
+</body>
+</html>

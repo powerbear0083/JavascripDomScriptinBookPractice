@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Chapter7-1 Image Gallery</title>
+<link type="text/css" rel="stylesheet"  href="css/layout.css">
+</head>
+<body>
+<h1>Snapshots</h1>
+<ul id="imagegallery">
+    <li><a href="images/fireworks.png" title="a fireworks display">
+        <img src="images/fireworks.png" alt="fireworks"></a></li>
+    <li><a href="images/coffee.jpg" title="A cup of black coffee">
+        <img src="images/coffee.jpg" alt="coffee"></a></li>
+    <li><a href="images/rose.jpg" title="A red, red rose">
+        <img src="images/rose.jpg" alt="rose"></a></li>
+    <li><a href="images/bigben.jpg" title="the famous clock">
+        <img src="images/bigben.jpg" alt="clock"></a></li>
+</ul>
+<!-- <script type="text/javascript" src="js/showPic.js"></script> -->
+<script type="text/javascript">
+function addLoadEvent (func) {
+    var oldonload = window.onload;
+    if(typeof window.onload != 'function'){
+        window.onload = func;
+    }else{
+        window.onload = function(){
+            oldonload();
+            func();
+        }
+    }
+}
+
+function insertAfter (newElement, targetElement) {
+    var parent = targetElement.parentNode;
+    if(parent.lastChild == targetElement){
+        parent.appendChild(newElement);
+    }else{
+        parent.insertBefore(newElement, targetElement.nextSibling);
+    }
+}
+
+function preparePlaceholder(){
+    if (!document.createElement) return false;
+    if (!document.createTextNode) return false;
+    if (!document.getElementById) return false;
+    if (!document.getElementById('imagegallery')) return false;
+
+    var placeholder = document.createElement('img');
+    placeholder.setAttribute('id', 'placeholder');
+    placeholder.setAttribute('src', 'images/placeholder.jpg');
+    placeholder.setAttribute('alt', 'my image gallery');
+
+    var description = document.createElement('p');
+    description.setAttribute('id', 'description');
+
+    var desctext = document.createTextNode('Choose an image');
+    description.appendChild(desctext);
+
+    var gallery = document.getElementById('imagegallery');
+
+    insertAfter(placeholder, gallery);
+    insertAfter(description, placeholder);
+}
+
+function prepareGallery() {
+    if (!document.getElementsByTagName) return false;
+    if (!document.getElementById) return false;
+    if (!document.getElementById('imagegallery')) return false;
+
+    var gallery = document.getElementById('imagegallery');
+    var links = gallery.getElementsByTagName('a');
+
+    for (var i = 0; i < links.length; i++) {
+        links[i].onclick = function() {
+            return showPic(this);
+        }
+        links[i].onkeypress = links[i].onclick;
+    }
+}
+
+function showPic(whichpic) {
+    if (!document.getElementById('placeholder')) return false;
+
+    var source = whichpic.getAttribute('href');
+    var placeholder = document.getElementById('placeholder');
+
+    placeholder.setAttribute('src', source);
+
+    if (!document.getElementById('description')) return false;
+
+    if (whichpic.getAttribute('title')) {
+        var text = whichpic.getAttribute('title');
+    } else {
+        var text = '';
+    }
+
+    var description = document.getElementById('description');
+    console.log(description.firstChild.nodeType);
+    description.firstChild.nodeValue = text;
+    /*if (description.firstChild.nodeType == 3) {
+        description.firstChild.nodeType = text;
+    }else{
+        description.firstChild.nodeValue = text;
+    }*/
+    return false;
+}
+addLoadEvent(preparePlaceholder);
+addLoadEvent(prepareGallery);
+</script>
+</body>
+</html>
