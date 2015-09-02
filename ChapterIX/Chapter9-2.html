@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Chapter 9</title>
+<link rel="stylesheet" href="css/typography.css">
+</head>
+<body>
+<div class="wrap">
+	<p id="example">An example of a paragraph</p>
+</div>
+<script type="text/javascript">
+window.onload = function () {
+	var para = document.getElementById('example');
+
+	para.style.color = 'red';
+	para.style.font = "2em 'Timer', serif";
+	//alert(typeof para.nodeName);
+	//alert(typeof para.style);
+	//alert('The color is ' + para.style.color);
+	//alert('The font-family is ' + para.style.fontFamily);
+	//alert('The font size is ' + para.style.fontSize);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+body{
+	font-family: "Helvetica",Verdana, Geneva, sans-serif;
+	font-size: 15pt;
+	background-color: #fff;
+	color: #555;
+}
+#example{
+	color: gray;
+	font: 15px 'Arial', sans-serif;
+}
+table{
+	margin: auto;
+	border: 1px solid #699;
+}
+caption{
+	margin: auto;
+	padding: .2em;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+th{
+	font-weight: normal;
+	font-style: italic;
+	text-align: left;
+	border: 1px dotted #699;
+	background-color: #9cc;
+	color: #333;
+}
+th, td{
+	width: 10em;
+	padding: .5em;
+}
+/* tr:nth-child(odd){background-color: #ffc;}
+tr:nth-child(even){background-color: #fff;} */
+.intro{
+	font-weight: bold;
+	font-size: 1.2em;
+}
+.odd{
+	background-color: #ffc;
+}
