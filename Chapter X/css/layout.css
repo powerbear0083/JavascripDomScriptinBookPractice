@@ -4,3 +4,6 @@
 	position: relative;
 	overflow: hidden;
 }
+.slide-show img{
+	position: absolute;
+}

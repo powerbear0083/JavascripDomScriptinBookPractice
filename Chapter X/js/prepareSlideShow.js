@@ -3,11 +3,7 @@ function prepareSlideShow () {
 	if(!document.getElementById) return false;
 	if(!document.getElementById('linkList')) return false;
 	if(!document.getElementById('preview')) return false;
-
-	var preview = document.getElementById('preview');
-	preview.style.position = 'absolute';
-	// preview.style.left ='0px';
-	// preview.style.top = '0px';
+	
 
 	var list = document.getElementById('linkList');
 	var links = list.getElementsByTagName('a');
